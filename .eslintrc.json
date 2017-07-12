@@ -1,0 +1,17 @@
+{
+    "rules": {
+        "semi": [
+            "error",
+            "always"
+        ],
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "no-unused-vars": ["off", { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }]
+    },
+    "plugins": [
+        "react"
+    ],
+    "extends": "standard"
+}
