@@ -9,39 +9,27 @@ class ActionBase{
   }
 }
 
-function loadData () {
-  Dispatcher.dispatch(new ActionBase(DataActions.REQUEST_DATA_LIST));
-  DataGateway
-    .loadRecentDataList()
-    .then(data => {
-      Dispatcher.dispatch(new ActionBase(DataActions.REQUEST_DATA_LIST, data));
-    })
-    .then(() => {
-      Dispatcher.dispatch(new ActionBase(DataActions.REQUEST_DATA_ITEM));
-      return DataGateway.loadDataById(14758925);
-    })
-    .then(data => {
-      Dispatcher.dispatch(new ActionBase(DataActions.RECEIVE_DATA_ITEM, data));
-    });
+function initialDataLoaded(){
+  let initialDataLoadedAction = new ActionBase();
+  Dispatcher.dispatch(initialDataLoadedAction);
 }
 
 function nextPage () {
-  let nextPageAction = new ActionBase();
+  let nextPageAction = new ActionBase(PaginationActions.NEXT_PAGE);
   Dispatcher.dispatch(nextPageAction);
 }
 
 function prevPage () {
-  let prevPageAction = new ActionBase();
+  let prevPageAction = new ActionBase(PaginationActions.PREV_PAGE);
   Dispatcher.dispatch(prevPageAction);
 }
 
-function addToFavorites () {
-  let addToFavoritesAction = new ActionBase();
+function addToFavorites (id) {
+  let addToFavoritesAction = new ActionBase(FeedbackActions.TOGGLE_FAVORITES, id);
   Dispatcher.dispatch(addToFavoritesAction);
 }
 
 export default {
-  loadData,
   nextPage,
   prevPage,
   addToFavorites

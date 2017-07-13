@@ -1,4 +1,4 @@
-class PostDto {
+class Post {
   constructor(srcJson) {
       this.by = srcJson.by,
       this.descendants = srcJson.descendants,
@@ -11,4 +11,4 @@ class PostDto {
   }
 }
 
-export default PostDto;
+export default Post;

@@ -1,0 +1,18 @@
+html *
+{
+  font-family: 'Playfair Display', serif;
+  color: gray;
+  margin-right: 20px;
+  font-size: 16;
+}
+
+.posts__text--liked{
+  color: salmon;
+}
+
+.posts__pagination{
+  margin: auto;
+  width: 50%;
+  margin-top:20px;
+  margin-bottom:20px;
+}

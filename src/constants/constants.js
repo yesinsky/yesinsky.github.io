@@ -1,16 +1,12 @@
-export const PaginationTypes = {
+export const PaginationActions = {
   NEXT_PAGE: 'NEXT_PAGE',
   PREV_PAGE: 'PREV_PAGE'
 };
 
-export const FeedbackTypes = {
-  ADD_TO_FAVORITES: 'ADD_TO_FAVORITES',
-  REMOVE_FROM_FAVORITES: 'REMOVE_FROM_FAVORITES'
+export const FeedbackActions = {
+  TOGGLE_FAVORITES: 'TOGGLE_FAVORITES',
 };
 
 export const DataActions = {
-  REQUEST_DATA_LIST: 'REQUEST_DATA_LIST',
-  RECEIVE_DATA_LIST: 'RECEIVE_DATA_LIST',
-  REQUEST_DATA_ITEM: 'REQUEST_DATA_ITEM',
-  RECEIVE_DATA_ITEM: 'RECEIVE_DATA_ITEM',
+  INITIAL_DATA_LOADED: 'INITIAL_DATA_LOADED',
 };
