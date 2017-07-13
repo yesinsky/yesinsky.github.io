@@ -1,7 +1,11 @@
 import React from 'react';
+import Actions from '../actions/actions';
 
 export default class App extends React.Component {
   render () {
-    return <h1>Hello world</h1>;
+    return (
+      <div className="testing">
+        <h1 onClick={Actions.loadData}>Load data</h1>
+      </div>);
   }
 }
