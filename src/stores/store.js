@@ -58,6 +58,8 @@ class AppStore extends EventEmitter {
     let start = (state.currentPage - 1) * state.itemsOnPage;
     let end = start + state.itemsOnPage;
     let idsForPage = state.ids.slice(start, end);
+
+    //Disclaimer: API does not support bulk loading, only by one.
     return Promise
       .all(idsForPage.map((id) => DataGateway.loadDataById(id).then(data => new Post(data))))
       .then((data) => {
