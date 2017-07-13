@@ -20,16 +20,21 @@ export default class App extends React.Component {
     this.setState({items: storeState.currentItems, liked: storeState.likedItems});
   }
 
+  isInFavorites(item){
+    return this.state.liked.indexOf(item.id) >= 0;
+  }
+
   render() {
     if(!this.state.items) return <span>Fancy loading spinner imitation</span>;
     let items = this.state.items.map(item => {
       return (
         <div className="posts__row" key={item.id}>
           <button className="posts__button" onClick={() => Actions.addToFavorites(item.id)}>Like</button>
-          <span className={this.state.liked.indexOf(item.id) >= 0 ?
-            "posts__text posts__text--liked" :
-            "posts__text posts__text--common" }>Post by {item.by}:</span>
           <a className="posts__text posts__text--link" href={item.url} target="_blank">{item.title}</a>
+          <span className={ this.isInFavorites(item)?
+            "posts__by posts__text--liked" :
+            "posts__by posts__text--common" }>Post by {item.by}
+          </span>
         </div>
       )
     });
