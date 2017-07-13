@@ -1,6 +1,6 @@
 import { Dispatcher } from 'flux';
 
-class DispatcherDecorator extends Dispatcher {
+class AppDispatcher extends Dispatcher {
   constructor () {
     super();
     this.dispatcher = new Dispatcher();
@@ -10,11 +10,9 @@ class DispatcherDecorator extends Dispatcher {
     return this.dispatcher.register(callback);
   }
 
-  dispatch (actionType, action) {
-    console.log(actionType);
-    console.log(action);
-    return this.dispatcher.dispatch(actionType, action);
+  dispatch (payload) {
+    return this.dispatcher.dispatch(payload);
   }
 }
 
-export default new DispatcherDecorator();
+export default new AppDispatcher();

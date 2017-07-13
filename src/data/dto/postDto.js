@@ -1,12 +1,14 @@
 class PostDto {
-  constructor (by, descendants, id, score, time, title, type, url) {
-    this.by = by;
-    this.descendants = descendants;
-    this.id = id;
-    this.score = score;
-    this.time = time;
-    this.title = title;
-    this.type = type;
-    this.url = url;
+  constructor(srcJson) {
+      this.by = srcJson.by,
+      this.descendants = srcJson.descendants,
+      this.id = srcJson.id,
+      this.score = srcJson.score,
+      this.time = srcJson.time,
+      this.title = srcJson.title,
+      this.type = srcJson.type,
+      this.url = srcJson.url;
   }
 }
+
+export default PostDto;
