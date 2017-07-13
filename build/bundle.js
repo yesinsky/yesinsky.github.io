@@ -22591,6 +22591,11 @@ var App = function (_React$Component) {
       this.setState({ items: storeState.currentItems, liked: storeState.likedItems });
     }
   }, {
+    key: 'isInFavorites',
+    value: function isInFavorites(item) {
+      return this.state.liked.indexOf(item.id) >= 0;
+    }
+  }, {
     key: 'render',
     value: function render() {
       var _this4 = this;
@@ -22612,16 +22617,15 @@ var App = function (_React$Component) {
             'Like'
           ),
           _react2.default.createElement(
-            'span',
-            { className: _this4.state.liked.indexOf(item.id) >= 0 ? "posts__text posts__text--liked" : "posts__text posts__text--common" },
-            'Post by ',
-            item.by,
-            ':'
-          ),
-          _react2.default.createElement(
             'a',
             { className: 'posts__text posts__text--link', href: item.url, target: '_blank' },
             item.title
+          ),
+          _react2.default.createElement(
+            'span',
+            { className: _this4.isInFavorites(item) ? "posts__by posts__text--liked" : "posts__by posts__text--common" },
+            'Post by ',
+            item.by
           )
         );
       });
@@ -24028,7 +24032,7 @@ exports = module.exports = __webpack_require__(199)(undefined);
 
 
 // module
-exports.push([module.i, "html *\n{\n  font-family: 'Playfair Display', serif;\n  color: gray;\n  margin-right: 20px;\n  font-size: 16;\n}\n\n.posts__text--liked{\n  color: salmon;\n}\n\n.posts__pagination{\n  margin: auto;\n  width: 50%;\n  margin-top:20px;\n  margin-bottom:20px;\n}", ""]);
+exports.push([module.i, "html *\n{\n  font-family: 'Playfair Display', serif;\n  color: gray;\n  margin-right: 20px;\n  font-size: 16;\n}\n\n.posts__text--liked:after{\n  content:\" \\2764   \";\n  color: salmon;\n}\n\n.posts__by{\n  font-style: italic;\n  color: lightgray;\n}\n\n.posts__pagination{\n  margin: auto;\n  width: 50%;\n  margin-top:20px;\n  margin-bottom:20px;\n}", ""]);
 
 // exports
 
